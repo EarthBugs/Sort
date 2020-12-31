@@ -56,3 +56,39 @@ void Sort::ShellSort()
 		}
 	}
 }
+
+//冒泡排序
+void Sort::BubbleSort()
+{
+	for (int index = 0, temp; index < MAXSIZE - 1; index++)
+		for (int index1 = 0; index1 < MAXSIZE - 1 - index; index1++)
+			if (data[index1] > data[index1 + 1])
+			{
+				temp = data[index1];
+				data[index1] = data[index1 + 1];
+				data[index1 + 1] = temp;
+			}
+}
+
+//快速排序
+void Sort::QuickSort(int left, int right)
+{
+	if (left < right)
+	{
+		int index1 = left, index2 = right, mid = data[left];
+		while (index1 < index2)
+		{
+			while (index1 < index2 && data[index2] >= mid)//从右向左找第一个小于mid的数
+				index2--;
+			if (index1 < index2)
+				data[index1++] = data[index2];
+			while (index1 < index2 && data[index1] < mid)//从左向右找第一个大于等于mid的数
+				index1++;
+			if (index1 < index2)
+				data[index2--] = data[index1];
+		}
+		data[index1] = mid;
+		QuickSort(left, index1 - 1);//递归调用 
+		QuickSort(index1 + 1, right);
+	}
+}

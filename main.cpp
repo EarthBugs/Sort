@@ -28,7 +28,7 @@ void test()
 
 			case '0'://输出帮助
 			{
-				cout << "1.退出程序\n2.清屏\n3.创建数组\n4.打印数组\n5.执行直接插入排序\n6.执行希尔排序\n\n";
+				cout << "1.退出程序\n2.清屏\n3.创建数组\n4.打印数组\n5.执行直接插入排序\n6.执行希尔排序\n7.执行冒泡排序\n8.快速排序\n\n";
 				break;
 			}
 
@@ -40,7 +40,7 @@ void test()
 				break;
 			}
 
-			case '4':case '5':case '6':
+			case '4':case '5':case '6':case '7':case '8':
 			{
 				//判断数组是否为空，为空则不允许对对象进行操作
 				if (array_flag == false)
@@ -110,6 +110,26 @@ void test()
 			{
 				sort.ShellSort();
 				cout << "	已执行希尔排序。\n";
+				cout << "	数组为：\n	";
+				sort.PrintData();
+				cout << "\n\n";
+				break;
+			}
+
+			case '7':
+			{
+				sort.BubbleSort();
+				cout << "	已执行冒泡排序。\n";
+				cout << "	数组为：\n	";
+				sort.PrintData();
+				cout << "\n\n";
+				break;
+			}
+
+			case '8':
+			{
+				sort.QuickSort(0, MAXSIZE - 1);
+				cout << "	已执行快速排序。\n";
 				cout << "	数组为：\n	";
 				sort.PrintData();
 				cout << "\n\n";
